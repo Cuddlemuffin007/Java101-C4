@@ -9,6 +9,32 @@ public class ContactApp {
 
 	public static void main(String[] args) throws IOException {
 		Scanner scan = new Scanner(System.in);
+		int choice = 0;
+
+		do{
+			System.out.println("Enter number: [1 = Add New Contact, 2 = Print Contacts, 3 Update Contact, 4 Delete Contact, 0 = Exit]");
+
+			choice = scan.nextInt();
+			switch(choice){
+			case 1 : // Add new contact
+				addToFile(scan);
+				break;
+			case 2 : //Print contacts
+				readFromFile();
+				break;
+			case 3 : //Update contact
+				//code code code
+				break;
+			case 4 : //Delete contact
+				//code code code
+				break;
+			}
+		}while(choice != 0);//end while loop
+
+		scan.close();
+	}
+		
+	public static void addToFile(Scanner scan) throws IOException {
 		
 		Contact c = new Contact();
 		
@@ -26,11 +52,8 @@ public class ContactApp {
 		
 		//Call write method
 		writeToFile(c.getFirstName(), c.getLastName(), c.getTel(), c.getEmail());
-		//Call read method
-		readFromFile();
 		
-		System.out.println("FINISH.");
-		scan.close();
+		System.out.println("Contact added to file!");
 	}
 	
 	public static void writeToFile(String firstName, String lastName, String tel, String email) throws IOException {
